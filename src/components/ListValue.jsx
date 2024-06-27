@@ -7,7 +7,7 @@ const ListValue = () => {
   const [latestValue, setLatestValue] = useState(0);
 
   const getValues = async () => {
-    const response = await fetch("http://localhost:3000/api/values");
+    const response = await fetch("http://82.147.71.40/api/values");
     const data = await response.json();
     data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     setValues(data);
@@ -32,7 +32,7 @@ const ListValue = () => {
   // Function to delete all values
   const deleteAllValues = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/delete/values", {
+      const response = await fetch("http://82.147.71.40/api/delete/values", {
         method: "DELETE",
       });
       if (response.status === 200) {
@@ -43,6 +43,18 @@ const ListValue = () => {
     } catch (error) {
       console.error("Error deleting values:", error);
     }
+  };
+
+  const toMoscowTime = (timestamp) => {
+    return new Date(timestamp).toLocaleString("en-GB", {
+      timeZone: "Europe/Moscow",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
   };
 
   return (
@@ -129,7 +141,7 @@ const ListValue = () => {
             <tbody>
               {values.map((item) => (
                 <tr key={item.number_id}>
-                  <td>{item.timestamp}</td>
+                  <td>{toMoscowTime(item.timestamp)}</td>
                   <td>{item.value}</td>
                 </tr>
               ))}

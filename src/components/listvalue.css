@@ -11,7 +11,7 @@
   right: 12.5%;
   z-index: 1000;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
 }
 /* 
 .scrollable-content {
@@ -20,7 +20,7 @@
 } */
 
 .table-scrollable {
-  margin-top: 450px;
+  margin-top: 520px;
   width: 100%;
 }
 
@@ -29,8 +29,8 @@
   padding: 0 20px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .table-scrollable {
-    margin-top: 550px;
+    margin-top: 620px;
   }
 }
