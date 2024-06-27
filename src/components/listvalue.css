@@ -13,8 +13,24 @@
   box-sizing: border-box;
   padding: 20px;
 }
-
+/* 
 .scrollable-content {
-  margin-top: 300px;
+  margin-top: 400px;
   overflow-y: auto;
+} */
+
+.table-scrollable {
+  margin-top: 450px;
+  width: 100%;
+}
+
+.table-wrapper {
+  position: relative;
+  padding: 0 20px;
+}
+
+@media (max-width: 400px) {
+  .table-scrollable {
+    margin-top: 550px;
+  }
 }
